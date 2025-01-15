@@ -130,65 +130,65 @@ Zwraca 10 najleszych wyników <br>
 
 ### Login
 
-Odpowiada za logowanie użytkownika
-**URL:** /login
-**Metoda:** GET
-**Parametry:** login, password
-**Przykład:** `/login?login=test&password=secret`
+Odpowiada za logowanie użytkownika <br>
+**URL:** /login <br>
+**Metoda:** GET <br>
+**Parametry:** login, password <br>
+**Przykład:** `/login?login=test&password=secret` <br>
 **Odpowiedź:** true lub false
 
 ### Register
 
-Odpowiada za rejestracje użytkownika
-**URL:** /register
-**Metoda:** POST
-**Parametry:** login, password, mail
-**Przykład:** `/register?login=test&password=secret&mail=test@example.com`
+Odpowiada za rejestracje użytkownika <br>
+**URL:** /register <br>
+**Metoda:** POST <br>
+**Parametry:** login, password, mail <br>
+**Przykład:** `/register?login=test&password=secret&mail=test@example.com` <br>
 **Odpowiedź:** "420" dla poprawnej rejestracji, "69" jeśli użytkownik istnieje, "0" dla błędnej rejestracji.
 
 ### SaveScore
 
-Zapisuje wynik użytkownika
-**URL:** /saveScore
-**Metoda:** POST
-**Parametry:** login, score
-**Przykład:** `/saveScore?login=test&score=100`
+Zapisuje wynik użytkownika <br>
+**URL:** /saveScore <br>
+**Metoda:** POST <br>
+**Parametry:** login, score <br>
+**Przykład:** `/saveScore?login=test&score=100` <br>
 **Odpowiedź:** "420" dla poprawnej zapisu, "0" dla błędnego zapisu.
 
 ### SendActivationCode
 
-Wysyła kod aktywacyjny na mail użytkownika
-**URL:** /sendActivationCode
-**Metoda:** GET
-**Parametry:** login
-**Przykład:** `/sendActivationCode?login=test`
+Wysyła kod aktywacyjny na mail użytkownika <br>
+**URL:** /sendActivationCode <br>
+**Metoda:** GET <br>
+**Parametry:** login <br>
+**Przykład:** `/sendActivationCode?login=test` <br>
 **Odpowiedź:** "Activation code sent successfully" dla udanego wysłania, Error dla błędnego wysłania.
 
 ### ActivateUser
 
-Aktywuje konto użytkownika
-**URL:** /sendActivationCode
-**Metoda:** GET
-**Parametry:** login
-**Przykład:** `/activateUser?login=test`
+Aktywuje konto użytkownika <br>
+**URL:** /sendActivationCode <br>
+**Metoda:** GET <br>
+**Parametry:** login <br>
+**Przykład:** `/activateUser?login=test` <br>
 **Odpowiedź:** "User activated successfully" dla udanej aktywacji, Error dla błędnej aktywacji.
 
 ### GetActivationCode
 
-Pobiera kod aktywacyjny
-**URL:** /getActivationCode
-**Metoda:** GET
-**Parametry:** login
-**Przykład:** `/getActivationCode?login=test`
+Pobiera kod aktywacyjny <br>
+**URL:** /getActivationCode <br>
+**Metoda:** GET <br>
+**Parametry:** login <br>
+**Przykład:** `/getActivationCode?login=test` <br>
 **Odpowiedź:** Przy udanym pobraniu zwraca kod aktywacyjny, Error przy błędnym pobraniu.
 
 ### SendScoreEmail
 
-Wysyła wynik gry na mail użytkownika
-**URL:** /sendScore
-**Metoda:** GET
-**Parametry:** login, wynik
-**Przykład:** `/sendScore?login=test&wynik=100`
+Wysyła wynik gry na mail użytkownika <br>
+**URL:** /sendScore <br>
+**Metoda:** GET <br>
+**Parametry:** login, wynik <br>
+**Przykład:** `/sendScore?login=test&wynik=100` <br>
 **Odpowiedź:** "Score sent successfully" przy poprawnym wysłaniu, Error przy brakującym mailu.
 
 ## Przypadki manualne dla testera manualnego
