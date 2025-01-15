@@ -14,11 +14,39 @@ Gra Memory Card zapewnia użytkownikom możliwość tworzenia swoich kont, co po
 
 ## Uruchomienie projektu
 
-1. 
+1. Jeśli chcemy uruchomić aplikację przechodzimy do folderu głównego aplikacji i uruchamiamy skrypt: `start_app.bat`
+2. Jeśli chcemy uruchomić testy aplikacji przzechodzimy do folderu głównego i uruchamiamy skrypt: `start_tests.bat`
 
 ## Testy
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### GameComponent [kod](https://github.com/iZi1211/TiJO_Project/blob/main/src/app/components/game/game.component.spec.ts)
+
+**Testy jednostkowe:**
+<ul>
+  <li>should initialize with default values and start game timer</li>
+  <li>should call gameOver if all tiles are matched in non-infinite mode</li>
+</ul>
+
+**Testy integracyjne**
+<ul>
+  <li>should navigate to the score page when game is over</li>
+</ul>
+
+### LeaderboardComponent [kod](https://github.com/iZi1211/TiJO_Project/blob/main/src/app/components/leaderboard/leaderboard.component.spec.ts)
+
+**Testy jednostkowe:**
+<ul>
+  <li>should parse ranking data correctly</li>
+  <li>should ignore empty lines in ranking data</li>
+  <li>should return an empty array if no valid ranking data</li>
+</ul>
+
+**Testy integracyjne**
+<ul>
+  <li>should check if user is logged in and fetch ranking if logged in</li>
+  <li>should not fetch ranking if user is not logged in</li>
+  <li>should fetch ranking successfully</li>
+</ul>
 
 ## Dokumentacja API
 
