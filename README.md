@@ -122,10 +122,10 @@ Gra Memory Card zapewnia użytkownikom możliwość tworzenia swoich kont, co po
 
 ### Ranking
 
-Zwraca 10 najleszych wyników
-**URL:** /ranking
-**Metoda**: GET
-**Przykład:** `/ranking`
+Zwraca 10 najleszych wyników <br>
+**URL:** /ranking <br>
+**Metoda**: GET <br>
+**Przykład:** `/ranking` <br>
 **Odpowiedź:** "username1/score1;username2/score2;..."
 
 ### Login
