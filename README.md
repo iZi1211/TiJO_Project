@@ -48,9 +48,148 @@ Gra Memory Card zapewnia użytkownikom możliwość tworzenia swoich kont, co po
   <li>should fetch ranking successfully</li>
 </ul>
 
-## Dokumentacja API
+### LoginComponent [kod](https://github.com/iZi1211/TiJO_Project/blob/main/src/app/components/login/login.component.spec.ts)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Testy jednostkowe:**
+<ul>
+  <li>should create the component</li>
+  <li>should show error message if username is missing</li>
+  <li>should show error message if account activation fails</li>
+</ul>
+
+**Testy integracyjne**
+<ul>
+  <li>should show error message if login fails</li>
+  <li>should navigate to activation screen if account is not activated</li>
+  <li>should login successfully if account is activated</li>
+  <li>should show error message if login fails due to server issue</li>
+</ul>
+
+### RegisterComponent [kod](https://github.com/iZi1211/TiJO_Project/blob/main/src/app/components/register/register.component.spec.ts)
+
+**Testy jednostkowe:**
+<ul>
+  <li>should show an error message if the email format is invalid</li>
+  <li>should show an error message if passwords do not match</li>
+  <li>should show an error message if email field is missing</li>
+</ul>
+
+**Testy integracyjne**
+<ul>
+  <li>should show an error message when the username already exists</li>
+  <li>should show a generic error message if registration fails</li>
+  <li>should show an error message if there is an error in API response</li>
+</ul>
+
+### ScoreComponent [kod](https://github.com/iZi1211/TiJO_Project/blob/main/src/app/components/score/score.component.spec.ts)
+
+**Testy jednostkowe:**
+<ul>
+  <li>should send the score to the database when ngOnInit is called</li>
+  <li>should handle errors when sending the score to the database</li>
+  <li>should navigate home after sending the score via email</li>
+  <li>should use localStorage to get the username on init</li>
+  <li>should call navigateHome() when navigation is triggered</li>
+</ul>
+
+**Testy integracyjne**
+<ul>
+  <li>should initialize the score from the router state</li>
+</ul>
+
+### ApiService [kod](https://github.com/iZi1211/TiJO_Project/blob/main/src/app/services/api.service.spec.ts)
+
+**Testy jednostkowe:**
+<ul>
+  <li>should successfully communicate with the backend when fetching leaderboard data</li>
+  <li>should return proper status when submitting score</li>
+  <li>should send activation code and return success</li>
+  <li>should return account activation status</li>
+  <li>should handle error when sending activation code fails</li>
+  <li>should handle error when sending score via email fails</li>
+  <li>should log in successfully and return a token</li>
+</ul>
+
+**Testy integracyjne**
+<ul>
+  <li>should successfully communicate with the backend when fetching leaderboard data</li>
+  <li>should return proper status when submitting score</li>
+  <li>should return user activation status after checking with backend</li>
+</ul>
+
+## Dokumentacja API 
+[**Kod API**](https://github.com/iZi1211/TiJO_Project/blob/main/API/milionerzy_api/src/main/java/api/MyApiApplication.java)
+
+### Ranking
+
+Zwraca 10 najleszych wyników
+**URL:** /ranking
+**Metoda**: GET
+**Przykład:** `/ranking`
+**Odpowiedź:** "username1/score1;username2/score2;..."
+
+### Login
+
+Odpowiada za logowanie użytkownika
+**URL:** /login
+**Metoda:** GET
+**Parametry:** login, password
+**Przykład:** `/login?login=test&password=secret`
+**Odpowiedź:** true lub false
+
+### Register
+
+Odpowiada za rejestracje użytkownika
+**URL:** /register
+**Metoda:** POST
+**Parametry:** login, password, mail
+**Przykład:** `/register?login=test&password=secret&mail=test@example.com`
+**Odpowiedź:** "420" dla poprawnej rejestracji, "69" jeśli użytkownik istnieje, "0" dla błędnej rejestracji.
+
+### SaveScore
+
+Zapisuje wynik użytkownika
+**URL:** /saveScore
+**Metoda:** POST
+**Parametry:** login, score
+**Przykład:** `/saveScore?login=test&score=100`
+**Odpowiedź:** "420" dla poprawnej zapisu, "0" dla błędnego zapisu.
+
+### SendActivationCode
+
+Wysyła kod aktywacyjny na mail użytkownika
+**URL:** /sendActivationCode
+**Metoda:** GET
+**Parametry:** login
+**Przykład:** `/sendActivationCode?login=test`
+**Odpowiedź:** "Activation code sent successfully" dla udanego wysłania, Error dla błędnego wysłania.
+
+### ActivateUser
+
+Aktywuje konto użytkownika
+**URL:** /sendActivationCode
+**Metoda:** GET
+**Parametry:** login
+**Przykład:** `/activateUser?login=test`
+**Odpowiedź:** "User activated successfully" dla udanej aktywacji, Error dla błędnej aktywacji.
+
+### GetActivationCode
+
+Pobiera kod aktywacyjny
+**URL:** /getActivationCode
+**Metoda:** GET
+**Parametry:** login
+**Przykład:** `/getActivationCode?login=test`
+**Odpowiedź:** Przy udanym pobraniu zwraca kod aktywacyjny, Error przy błędnym pobraniu.
+
+### SendScoreEmail
+
+Wysyła wynik gry na mail użytkownika
+**URL:** /sendScore
+**Metoda:** GET
+**Parametry:** login, wynik
+**Przykład:** `/sendScore?login=test&wynik=100`
+**Odpowiedź:** "Score sent successfully" przy poprawnym wysłaniu, Error przy brakującym mailu.
 
 ## Przypadki manualne dla testera manualnego
 
